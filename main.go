@@ -73,6 +73,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		}
 		fmt.Fprintf(w, str)
 		return
+	} else {
+		logrus.Info("Invalid Url Param 'encoding'")
+		w.WriteHeader(http.StatusBadRequest)
+		fmt.Fprintf(w, "Invalid Url Param 'encoding'")
+		return
 	}
 
 }
